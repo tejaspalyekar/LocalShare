@@ -61,7 +61,7 @@
 43        android:debuggable="true"
 44        android:extractNativeLibs="true"
 45        android:icon="@mipmap/ic_launcher"
-46        android:label="p2p_sharing_app" >
+46        android:label="local share" >
 47        <activity
 48            android:name="com.example.p2p_sharing_app.MainActivity"
 49            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

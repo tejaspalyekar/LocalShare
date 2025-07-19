@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'features/home/view/home_page.dart';
+import 'features/data_sharing/view/home_page.dart';
 
 void main() {
   runApp(const MyApp());
