@@ -13,11 +13,11 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/Users/mac/Desktop/flutter/p2p_sharing_app/android/app/src/main/AndroidManifest.xml:2:5-66
-15-->/Users/mac/Desktop/flutter/p2p_sharing_app/android/app/src/main/AndroidManifest.xml:2:22-64
+15-->/Users/mac/Desktop/LocalShare/android/app/src/main/AndroidManifest.xml:2:5-66
+15-->/Users/mac/Desktop/LocalShare/android/app/src/main/AndroidManifest.xml:2:22-64
 16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-16-->/Users/mac/Desktop/flutter/p2p_sharing_app/android/app/src/main/AndroidManifest.xml:3:5-78
-16-->/Users/mac/Desktop/flutter/p2p_sharing_app/android/app/src/main/AndroidManifest.xml:3:22-76
+16-->/Users/mac/Desktop/LocalShare/android/app/src/main/AndroidManifest.xml:3:5-78
+16-->/Users/mac/Desktop/LocalShare/android/app/src/main/AndroidManifest.xml:3:22-76
 17    <!--
 18 Required to query activities that can process text, see:
 19         https://developer.android.com/training/package-visibility and
@@ -26,22 +26,22 @@
 22         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
 23    -->
 24    <queries>
-24-->/Users/mac/Desktop/flutter/p2p_sharing_app/android/app/src/main/AndroidManifest.xml:41:5-46:15
+24-->/Users/mac/Desktop/LocalShare/android/app/src/main/AndroidManifest.xml:41:5-46:15
 25        <intent>
-25-->/Users/mac/Desktop/flutter/p2p_sharing_app/android/app/src/main/AndroidManifest.xml:42:9-45:18
+25-->/Users/mac/Desktop/LocalShare/android/app/src/main/AndroidManifest.xml:42:9-45:18
 26            <action android:name="android.intent.action.PROCESS_TEXT" />
-26-->/Users/mac/Desktop/flutter/p2p_sharing_app/android/app/src/main/AndroidManifest.xml:43:13-72
-26-->/Users/mac/Desktop/flutter/p2p_sharing_app/android/app/src/main/AndroidManifest.xml:43:21-70
+26-->/Users/mac/Desktop/LocalShare/android/app/src/main/AndroidManifest.xml:43:13-72
+26-->/Users/mac/Desktop/LocalShare/android/app/src/main/AndroidManifest.xml:43:21-70
 27
 28            <data android:mimeType="text/plain" />
-28-->/Users/mac/Desktop/flutter/p2p_sharing_app/android/app/src/main/AndroidManifest.xml:44:13-50
-28-->/Users/mac/Desktop/flutter/p2p_sharing_app/android/app/src/main/AndroidManifest.xml:44:19-48
+28-->/Users/mac/Desktop/LocalShare/android/app/src/main/AndroidManifest.xml:44:13-50
+28-->/Users/mac/Desktop/LocalShare/android/app/src/main/AndroidManifest.xml:44:19-48
 29        </intent>
 30    </queries>
 31
 32    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-32-->[:network_info_plus] /Users/mac/Desktop/flutter/p2p_sharing_app/build/network_info_plus/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:5-76
-32-->[:network_info_plus] /Users/mac/Desktop/flutter/p2p_sharing_app/build/network_info_plus/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:22-73
+32-->[:network_info_plus] /Users/mac/Desktop/LocalShare/build/network_info_plus/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:5-76
+32-->[:network_info_plus] /Users/mac/Desktop/LocalShare/build/network_info_plus/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:22-73
 33
 34    <permission
 34-->[androidx.core:core:1.13.1] /Users/mac/.gradle/caches/8.10.2/transforms/8cf478dec41eed746328fa8046755ba2/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47

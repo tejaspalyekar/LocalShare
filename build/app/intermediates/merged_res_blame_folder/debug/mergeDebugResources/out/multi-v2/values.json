@@ -144,7 +144,7 @@
                     }
                 },
                 {
-                    "source": "/Users/mac/Desktop/flutter/p2p_sharing_app/android/app/src/main/res/values/styles.xml",
+                    "source": "/Users/mac/Desktop/LocalShare/android/app/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
