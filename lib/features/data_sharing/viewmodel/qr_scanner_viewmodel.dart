@@ -13,6 +13,7 @@ class QrScannerViewmodel extends GetxController {
 
   RxString remoteIpAddress = ''.obs;
   RxString remoteDeviceName = ''.obs;
+  RxBool isLoading = false.obs;
   RxString remotePortNumber = ''.obs;
 
   RxBool isQrScannerVisible = false.obs;
@@ -34,9 +35,12 @@ class QrScannerViewmodel extends GetxController {
 
   updateRemoteDeviceData(BarcodeCapture barcodeData, BuildContext context) {
     context.showLoading();
-    if (barcodeData != null ||
+
+    if (
         barcodeData.barcodes.first.rawValue!.isNotEmpty) {
-                  isQrScannerVisible.value = false;
+             isQrScannerVisible.value = false;
+             Get.closeCurrentSnackbar();
+             Get.showSnackbar(GetSnackBar(title: "Sharing Data",message: "Please wait data sharing is in progress",));
       log((barcodeData.barcodes.first.rawValue.toString()));
       final response = parseQrData(
         barcodeData.barcodes.first.rawValue.toString(),
@@ -47,8 +51,7 @@ class QrScannerViewmodel extends GetxController {
         remoteIpAddress.value = response.remoteIpAddress;
         remoteDeviceName.value = response.remoteDeviceName;
         remotePortNumber.value = response.remotePortNumber.toString();
-
-        sharingViewModel.sendDataTo(context,remoteIpAddress.value,remotePortNumber.value);
+        sharingViewModel.sendDataTo(remoteIpAddress.value,remotePortNumber.value);     
       }
     }
     context.dismissLoading();
@@ -80,13 +83,12 @@ class QrScannerViewmodel extends GetxController {
   showQrScanner(BuildContext context) {
     FocusScope.of(context).unfocus();
     isQrScannerVisible.value = true;
-    if(!sharingViewModel.isServerRunning.value){
-      sharingViewModel.startTcpServer(context);
-    }
+
     
   }
 
-  toggleMyQrCode() {
+  toggleMyQrCode(BuildContext context) {
     isShowQrVisible.value = !isShowQrVisible.value;
+
   }
 }

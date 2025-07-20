@@ -1,11 +1,11 @@
 <lint-module
     format="1"
-    dir="/Users/mac/Desktop/flutter/p2p_sharing_app/android/app"
+    dir="/Users/mac/Desktop/LocalShare/android/app"
     name=":app"
     type="APP"
     maven="android:app:unspecified"
     agpVersion="8.7.0"
-    buildFolder="/Users/mac/Desktop/flutter/p2p_sharing_app/build/app"
+    buildFolder="/Users/mac/Desktop/LocalShare/build/app"
     bootClassPath="/Users/mac/Library/Android/sdk/platforms/android-35/android.jar:/Users/mac/Library/Android/sdk/build-tools/34.0.0/core-lambda-stubs.jar"
     javaSourceLevel="11"
     compileTarget="android-35">

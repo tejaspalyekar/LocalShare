@@ -22,8 +22,8 @@ eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-jetified-annotation-e
 eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-core-runtime-2.2.0-21 /Users/mac/.gradle/caches/8.10.2/transforms/ff849810dfe34a0ab790c402787c149e/transformed/core-runtime-2.2.0/res
 eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-main-22 /Users/mac/.pub-cache/hosted/pub.dev/sqlcipher_flutter_libs-0.6.6/android/src/main/res
 eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-release-23 /Users/mac/.pub-cache/hosted/pub.dev/sqlcipher_flutter_libs-0.6.6/android/src/release/res
-eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-pngs-24 /Users/mac/Desktop/flutter/p2p_sharing_app/build/sqlcipher_flutter_libs/generated/res/pngs/release
-eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-resValues-25 /Users/mac/Desktop/flutter/p2p_sharing_app/build/sqlcipher_flutter_libs/generated/res/resValues/release
-eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-mergeReleaseResources-26 /Users/mac/Desktop/flutter/p2p_sharing_app/build/sqlcipher_flutter_libs/intermediates/incremental/release/mergeReleaseResources/merged.dir
-eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-mergeReleaseResources-27 /Users/mac/Desktop/flutter/p2p_sharing_app/build/sqlcipher_flutter_libs/intermediates/incremental/release/mergeReleaseResources/stripped.dir
-eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-release-28 /Users/mac/Desktop/flutter/p2p_sharing_app/build/sqlcipher_flutter_libs/intermediates/merged_res/release/mergeReleaseResources
+eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-pngs-24 /Users/mac/Desktop/LocalShare/build/sqlcipher_flutter_libs/generated/res/pngs/release
+eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-resValues-25 /Users/mac/Desktop/LocalShare/build/sqlcipher_flutter_libs/generated/res/resValues/release
+eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-mergeReleaseResources-26 /Users/mac/Desktop/LocalShare/build/sqlcipher_flutter_libs/intermediates/incremental/release/mergeReleaseResources/merged.dir
+eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-mergeReleaseResources-27 /Users/mac/Desktop/LocalShare/build/sqlcipher_flutter_libs/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+eu.simonbinder.sqlite3_flutter_libs.sqlcipher_flutter_libs-release-28 /Users/mac/Desktop/LocalShare/build/sqlcipher_flutter_libs/intermediates/merged_res/release/mergeReleaseResources

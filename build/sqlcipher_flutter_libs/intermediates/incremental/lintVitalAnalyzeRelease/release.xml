@@ -3,9 +3,9 @@
     package="eu.simonbinder.sqlite3_flutter_libs"
     minSdkVersion="21"
     targetSdkVersion="21"
-    mergedManifest="/Users/mac/Desktop/flutter/p2p_sharing_app/build/sqlcipher_flutter_libs/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml"
-    proguardFiles="/Users/mac/Desktop/flutter/p2p_sharing_app/build/sqlcipher_flutter_libs/intermediates/default_proguard_files/global/proguard-android.txt-8.7.0"
-    partialResultsDir="/Users/mac/Desktop/flutter/p2p_sharing_app/build/sqlcipher_flutter_libs/intermediates/lint_vital_partial_results/release/lintVitalAnalyzeRelease/out"
+    mergedManifest="/Users/mac/Desktop/LocalShare/build/sqlcipher_flutter_libs/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml"
+    proguardFiles="/Users/mac/Desktop/LocalShare/build/sqlcipher_flutter_libs/intermediates/default_proguard_files/global/proguard-android.txt-8.7.0"
+    partialResultsDir="/Users/mac/Desktop/LocalShare/build/sqlcipher_flutter_libs/intermediates/lint_vital_partial_results/release/lintVitalAnalyzeRelease/out"
     desugaredMethodsFiles="/Users/mac/.gradle/caches/8.10.2/transforms/58b2fa97deb6620e81e8f2146e68c814/transformed/D8BackportedDesugaredMethods.txt">
   <buildFeatures
       namespacing="REQUIRED"/>
@@ -21,11 +21,11 @@
   <testFixturesSourceProviders>
   </testFixturesSourceProviders>
   <artifact
-      classOutputs="/Users/mac/Desktop/flutter/p2p_sharing_app/build/sqlcipher_flutter_libs/intermediates/javac/release/compileReleaseJavaWithJavac/classes:/Users/mac/Desktop/flutter/p2p_sharing_app/build/sqlcipher_flutter_libs/intermediates/compile_r_class_jar/release/generateReleaseRFile/R.jar"
+      classOutputs="/Users/mac/Desktop/LocalShare/build/sqlcipher_flutter_libs/intermediates/javac/release/compileReleaseJavaWithJavac/classes:/Users/mac/Desktop/LocalShare/build/sqlcipher_flutter_libs/intermediates/compile_r_class_jar/release/generateReleaseRFile/R.jar"
       type="MAIN"
       applicationId="eu.simonbinder.sqlite3_flutter_libs"
-      generatedSourceFolders="/Users/mac/Desktop/flutter/p2p_sharing_app/build/sqlcipher_flutter_libs/generated/ap_generated_sources/release/out"
-      generatedResourceFolders="/Users/mac/Desktop/flutter/p2p_sharing_app/build/sqlcipher_flutter_libs/generated/res/resValues/release"
+      generatedSourceFolders="/Users/mac/Desktop/LocalShare/build/sqlcipher_flutter_libs/generated/ap_generated_sources/release/out"
+      generatedResourceFolders="/Users/mac/Desktop/LocalShare/build/sqlcipher_flutter_libs/generated/res/resValues/release"
       desugaredMethodsFiles="/Users/mac/.gradle/caches/8.10.2/transforms/58b2fa97deb6620e81e8f2146e68c814/transformed/D8BackportedDesugaredMethods.txt">
   </artifact>
 </variant>

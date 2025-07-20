@@ -5,7 +5,7 @@
     type="LIBRARY"
     maven="dev.fluttercommunity.plus.network_info:network_info_plus:1.0-SNAPSHOT"
     agpVersion="8.7.0"
-    buildFolder="/Users/mac/Desktop/flutter/p2p_sharing_app/build/network_info_plus"
+    buildFolder="/Users/mac/Desktop/LocalShare/build/network_info_plus"
     bootClassPath="/Users/mac/Library/Android/sdk/platforms/android-34/android.jar:/Users/mac/Library/Android/sdk/build-tools/34.0.0/core-lambda-stubs.jar"
     javaSourceLevel="17"
     compileTarget="android-34"
