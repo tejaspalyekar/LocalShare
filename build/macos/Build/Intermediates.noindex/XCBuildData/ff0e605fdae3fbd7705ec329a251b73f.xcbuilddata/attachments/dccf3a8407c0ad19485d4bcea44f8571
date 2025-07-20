@@ -1,5 +1,0 @@
-
-module sqlcipher_flutter_libs.Swift {
-  header "sqlcipher_flutter_libs-Swift.h"
-  requires objc
-}
