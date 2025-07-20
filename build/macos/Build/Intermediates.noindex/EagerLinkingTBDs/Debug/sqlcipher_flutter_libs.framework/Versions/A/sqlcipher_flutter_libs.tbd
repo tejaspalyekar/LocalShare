@@ -1,0 +1,52 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_$s22sqlcipher_flutter_libs26SqlcipherFlutterLibsPluginC6handle_6resultySo0E10MethodCallC_yypSgctF",
+            "_$s22sqlcipher_flutter_libs26SqlcipherFlutterLibsPluginC6handle_6resultySo0E10MethodCallC_yypSgctFTq",
+            "_$s22sqlcipher_flutter_libs26SqlcipherFlutterLibsPluginC8register4withySo0eG9Registrar_p_tFZ",
+            "_$s22sqlcipher_flutter_libs26SqlcipherFlutterLibsPluginCN",
+            "_sqlcipher_flutter_libsVersionString",
+            "_sqlcipher_flutter_libsVersionNumber",
+            "_$s22sqlcipher_flutter_libs26SqlcipherFlutterLibsPluginCMa",
+            "_$s22sqlcipher_flutter_libs26SqlcipherFlutterLibsPluginCMn",
+            "_$s22sqlcipher_flutter_libs26SqlcipherFlutterLibsPluginCACycfc",
+            "_$s22sqlcipher_flutter_libs26SqlcipherFlutterLibsPluginCACycfC",
+            "_$s22sqlcipher_flutter_libs26SqlcipherFlutterLibsPluginCfD"
+          ],
+          "objc_class": [
+            "Sqlite3FlutterLibsPlugin",
+            "PodsDummy_sqlcipher_flutter_libs",
+            "_TtC22sqlcipher_flutter_libs26SqlcipherFlutterLibsPlugin"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/sqlcipher_flutter_libs.framework/Versions/A/sqlcipher_flutter_libs"
+      }
+    ],
+    "swift_abi": [
+      {
+        "abi": 7
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "10.14",
+        "target": "x86_64-macos"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}

@@ -1,8 +1,12 @@
+import 'package:LocalShare/constants/app_constants.dart';
+import 'package:LocalShare/extensions/context_extension.dart';
+import 'package:LocalShare/features/data_sharing/view/sharing_screen.dart';
+import 'package:LocalShare/features/data_sharing/viewmodel/qr_scanner_viewmodel.dart';
+import 'package:LocalShare/features/data_sharing/widgets/how_to_share_info.dart';
+import 'package:LocalShare/features/data_sharing/widgets/qr_code.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qr_flutter/qr_flutter.dart';
-import '../viewmodel/home_viewmodel.dart';
-import 'dart:convert';
+
 import '../widgets/home_drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,24 +17,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  String? scannedQrData;
-  bool showQr = false;
-  bool showScanner = false;
-
   @override
   Widget build(BuildContext context) {
-    final viewModel = Get.put(HomeViewModel());
+    final scannerViewModel = Get.put(QrScannerViewmodel());
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('LocalShare'),
+        title: const Text('Local Share',style: TextStyle(fontWeight: FontWeight.w600)),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.share),
-            onPressed: () {},
-          ),
-        ],
+        actions: [IconButton(icon: const Icon(Icons.share), onPressed: () {})],
       ),
       drawer: const HomeDrawer(),
       body: SafeArea(
@@ -42,165 +37,64 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Card(
                   elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Row(
-                          children: [
-                            const Icon(Icons.qr_code, color: Colors.deepPurple),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Text(
-                                'QR Code',
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                            ),
-                            IconButton(
-                              icon: Icon(showQr ? Icons.close : Icons.qr_code),
-                              onPressed: () {
-                                setState(() {
-                                  showQr = !showQr;
-                                });
-                              },
-                            ),
-                          ],
-                        ),
-                        if (showQr)
-                          Obx(() => Center(
-                                // child: QrImage(
-                                //   data: '{"ip":"${viewModel.myIpAddress}","port":${viewModel.myPortNumber}}',
-                                //   version: QrVersions.auto,
-                                //   size: 180.0,
-                                // ),
-                              )),
-                        if (showQr)
-                          const Padding(
-                            padding: EdgeInsets.only(top: 8.0),
-                            child: Text('Show this QR to the sender.'),
-                          ),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Card(
-                  elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text('How to Share', style: Theme.of(context).textTheme.titleMedium),
-                        const SizedBox(height: 12),
-                        _buildStep('1. On receiver device, open LocalShare and tap the QR icon to show your QR.'),
-                        _buildStep('2. On sender device, tap "Send Data" and scan the receiver\'s QR code.'),
-                        _buildStep('3. Enter your message or select a file to share.'),
-                        _buildStep('4. Tap send!'),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                if (showScanner)
-                  SizedBox(
-                    height: 300,
-                    child: Card(
-                      elevation: 2,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                       
-                      ),
-                    ),
-                  ),
-                if (!showScanner)
-                  Card(
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
+                    child: Obx(
+                      () => Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Text('Send Data', style: Theme.of(context).textTheme.titleMedium),
-                          const SizedBox(height: 16),
-                          TextField(
-                            controller: viewModel.remoteIpAddressController,
-                            decoration: const InputDecoration(
-                              labelText: "Remote IP Address",
-                              prefixIcon: Icon(Icons.computer),
-                              border: OutlineInputBorder(),
-                            ),
-                          ),
-                          const SizedBox(height: 16),
-                          TextField(
-                            controller: viewModel.remotePortNumber,
-                            decoration: const InputDecoration(
-                              labelText: "Remote Port Number",
-                              prefixIcon: Icon(Icons.dns),
-                              border: OutlineInputBorder(),
-                            ),
-                            keyboardType: TextInputType.number,
-                          ),
-                          const SizedBox(height: 16),
-                          TextField(
-                            controller: viewModel.dataController,
-                            decoration: const InputDecoration(
-                              labelText: "Text to Send",
-                              prefixIcon: Icon(Icons.text_fields),
-                              border: OutlineInputBorder(),
-                            ),
-                            minLines: 1,
-                            maxLines: 3,
-                          ),
-                          const SizedBox(height: 20),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: ElevatedButton.icon(
-                                  icon: const Icon(Icons.qr_code_scanner),
-                                  label: const Text("Scan Receiver QR"),
-                                  style: ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    padding: const EdgeInsets.symmetric(vertical: 14),
+                          InkWell(
+                            onTap: () => scannerViewModel.toggleMyQrCode(),
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.qr_code,
+                                
+                                ),
+                                const SizedBox(width: 8),
+                                Expanded(
+                                  child: Text(
+                                    'My QR Code (Receive Files)',
+                                    style:
+                                        Theme.of(context).textTheme.titleMedium,
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    scannerViewModel.isShowQrVisible.value
+                                        ? Icons.close
+                                        : Icons.qr_code,
                                   ),
                                   onPressed: () {
-                                    setState(() {
-                                      showScanner = true;
-                                    });
+                                    scannerViewModel.toggleMyQrCode();
                                   },
                                 ),
-                              ),
-                              const SizedBox(width: 12),
-                              Expanded(
-                                child: ElevatedButton.icon(
-                                  icon: const Icon(Icons.send),
-                                  label: const Text("Send Text"),
-                                  style: ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    padding: const EdgeInsets.symmetric(vertical: 14),
-                                  ),
-                                  onPressed: () => viewModel.sendDataTo(context),
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
+                          if (scannerViewModel.isShowQrVisible.value)
+                            Center(child: MyQrCode()),
+                          if (scannerViewModel.isShowQrVisible.value)
+                            const Padding(
+                              padding: EdgeInsets.only(top: 8.0),
+                              child: Text('Show this QR to the sender.'),
+                            ),
                         ],
                       ),
                     ),
                   ),
-                const SizedBox(height: 16),
+                ),
+                SizedBox(height: context.screenHeight * 0.016),
+                HowToShareInfo(),
+                SizedBox(height: context.screenHeight * 0.016),
                 Card(
                   elevation: 2,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
@@ -210,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                           'Share Files',
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
-                        const SizedBox(height: 16),
+                        SizedBox(height: context.screenHeight * 0.016),
                         Wrap(
                           spacing: 16,
                           runSpacing: 16,
@@ -218,9 +112,17 @@ class _HomePageState extends State<HomePage> {
                             OutlinedButton.icon(
                               icon: const Icon(Icons.description),
                               label: const Text('Document'),
-                              onPressed: () {},
+                              onPressed:
+                                  () => Get.to(
+                                    () => SharingScreen(
+                                      sharingEnum: SharingEnum.document,
+                                    ),
+                                  ),
                               style: OutlinedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16,
+                                  horizontal: 20,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
@@ -229,9 +131,17 @@ class _HomePageState extends State<HomePage> {
                             OutlinedButton.icon(
                               icon: const Icon(Icons.audiotrack),
                               label: const Text('Audio'),
-                              onPressed: () {},
+                              onPressed:
+                                  () => Get.to(
+                                    () => SharingScreen(
+                                      sharingEnum: SharingEnum.audio,
+                                    ),
+                                  ),
                               style: OutlinedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16,
+                                  horizontal: 20,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
@@ -240,9 +150,17 @@ class _HomePageState extends State<HomePage> {
                             OutlinedButton.icon(
                               icon: const Icon(Icons.videocam),
                               label: const Text('Video'),
-                              onPressed: () {},
+                              onPressed:
+                                  () => Get.to(
+                                    () => SharingScreen(
+                                      sharingEnum: SharingEnum.video,
+                                    ),
+                                  ),
                               style: OutlinedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16,
+                                  horizontal: 20,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
@@ -251,9 +169,17 @@ class _HomePageState extends State<HomePage> {
                             OutlinedButton.icon(
                               icon: const Icon(Icons.text_snippet),
                               label: const Text('Text'),
-                              onPressed: () {},
+                              onPressed:
+                                  () => Get.to(
+                                    () => SharingScreen(
+                                      sharingEnum: SharingEnum.text,
+                                    ),
+                                  ),
                               style: OutlinedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 16,
+                                  horizontal: 20,
+                                ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
@@ -272,18 +198,93 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
 
-  Widget _buildStep(String text) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Icon(Icons.check_circle, color: Colors.deepPurple, size: 20),
-          const SizedBox(width: 8),
-          Expanded(child: Text(text)),
-        ],
-      ),
-    );
-  }
-} 
+
+
+// Card(
+//                   elevation: 2,
+//                   shape: RoundedRectangleBorder(
+//                     borderRadius: BorderRadius.circular(16),
+//                   ),
+//                   child: Padding(
+//                     padding: const EdgeInsets.all(20.0),
+//                     child: Column(
+//                       crossAxisAlignment: CrossAxisAlignment.stretch,
+//                       children: [
+//                         Text(
+//                           'Send Data',
+//                           style: Theme.of(context).textTheme.titleMedium,
+//                         ),
+//                         SizedBox(height: context.screenHeight * 0.016),
+//                         TextField(
+//                           controller:
+//                               sharingViewModel.remoteIpAddressController,
+//                           decoration: const InputDecoration(
+//                             labelText: "Remote IP Address",
+//                             prefixIcon: Icon(Icons.computer),
+//                             border: OutlineInputBorder(),
+//                           ),
+//                         ),
+//                         SizedBox(height: context.screenHeight * 0.016),
+//                         TextField(
+//                           controller: sharingViewModel.remotePortNumber,
+//                           decoration: const InputDecoration(
+//                             labelText: "Remote Port Number",
+//                             prefixIcon: Icon(Icons.dns),
+//                             border: OutlineInputBorder(),
+//                           ),
+//                           keyboardType: TextInputType.number,
+//                         ),
+//                         SizedBox(height: context.screenHeight * 0.016),
+//                         TextField(
+//                           controller: sharingViewModel.dataController,
+//                           decoration: const InputDecoration(
+//                             labelText: "Text to Send",
+//                             prefixIcon: Icon(Icons.text_fields),
+//                             border: OutlineInputBorder(),
+//                           ),
+//                           minLines: 1,
+//                           maxLines: 3,
+//                         ),
+//                         SizedBox(height: context.screenHeight * 0.020),
+//                         Row(
+//                           children: [
+//                             Expanded(
+//                               child: ElevatedButton.icon(
+//                                 icon: const Icon(Icons.qr_code_scanner),
+//                                 label: const Text("Scan Receiver QR"),
+//                                 style: ElevatedButton.styleFrom(
+//                                   shape: RoundedRectangleBorder(
+//                                     borderRadius: BorderRadius.circular(12),
+//                                   ),
+//                                   padding: const EdgeInsets.symmetric(
+//                                     vertical: 14,
+//                                   ),
+//                                 ),
+//                                 onPressed: () {},
+//                               ),
+//                             ),
+//                             SizedBox(height: context.screenHeight * 0.012),
+//                             Expanded(
+//                               child: ElevatedButton.icon(
+//                                 icon: const Icon(Icons.send),
+//                                 label: const Text("Send Text"),
+//                                 style: ElevatedButton.styleFrom(
+//                                   shape: RoundedRectangleBorder(
+//                                     borderRadius: BorderRadius.circular(12),
+//                                   ),
+//                                   padding: const EdgeInsets.symmetric(
+//                                     vertical: 14,
+//                                   ),
+//                                 ),
+//                                 onPressed:
+//                                     () => sharingViewModel.sendDataTo(context),
+//                               ),
+//                             ),
+//                           ],
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 ),

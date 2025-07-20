@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 import 'features/data_sharing/view/home_page.dart';
 
 void main() {
@@ -14,9 +15,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Local Sharing App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 58, 183, 173),
+        ),
       ),
-      home: const HomePage(),
+      home: LoaderOverlay(closeOnBackButton: false, child: const HomePage()),
     );
   }
 }

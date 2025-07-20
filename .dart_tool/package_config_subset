@@ -6,6 +6,10 @@ async
 3.4
 file:///Users/mac/.pub-cache/hosted/pub.dev/async-2.12.0/
 file:///Users/mac/.pub-cache/hosted/pub.dev/async-2.12.0/lib/
+back_button_interceptor
+3.2
+file:///Users/mac/.pub-cache/hosted/pub.dev/back_button_interceptor-8.0.4/
+file:///Users/mac/.pub-cache/hosted/pub.dev/back_button_interceptor-8.0.4/lib/
 boolean_selector
 3.1
 file:///Users/mac/.pub-cache/hosted/pub.dev/boolean_selector-2.1.2/
@@ -62,6 +66,10 @@ lints
 3.6
 file:///Users/mac/.pub-cache/hosted/pub.dev/lints-5.1.1/
 file:///Users/mac/.pub-cache/hosted/pub.dev/lints-5.1.1/lib/
+loader_overlay
+2.12
+file:///Users/mac/.pub-cache/hosted/pub.dev/loader_overlay-5.0.0/
+file:///Users/mac/.pub-cache/hosted/pub.dev/loader_overlay-5.0.0/lib/
 matcher
 3.4
 file:///Users/mac/.pub-cache/hosted/pub.dev/matcher-0.12.17/
@@ -74,6 +82,10 @@ meta
 2.12
 file:///Users/mac/.pub-cache/hosted/pub.dev/meta-1.16.0/
 file:///Users/mac/.pub-cache/hosted/pub.dev/meta-1.16.0/lib/
+mobile_scanner
+3.7
+file:///Users/mac/.pub-cache/hosted/pub.dev/mobile_scanner-7.0.1/
+file:///Users/mac/.pub-cache/hosted/pub.dev/mobile_scanner-7.0.1/lib/
 network_info_plus
 2.18
 file:///Users/mac/.pub-cache/hosted/pub.dev/network_info_plus-6.1.4/
@@ -126,6 +138,10 @@ plugin_platform_interface
 3.0
 file:///Users/mac/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.8/
 file:///Users/mac/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.8/lib/
+pretty_qr_code
+2.17
+file:///Users/mac/.pub-cache/hosted/pub.dev/pretty_qr_code-3.4.0/
+file:///Users/mac/.pub-cache/hosted/pub.dev/pretty_qr_code-3.4.0/lib/
 qr
 3.4
 file:///Users/mac/.pub-cache/hosted/pub.dev/qr-3.0.2/

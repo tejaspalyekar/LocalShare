@@ -15,7 +15,7 @@ class HomeDrawer extends StatelessWidget {
           DrawerHeader(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.deepPurple, Colors.deepPurpleAccent],
+                colors: [ Color.fromARGB(255, 55, 186, 175),  Color.fromARGB(255, 75, 202, 192)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
@@ -43,7 +43,7 @@ class HomeDrawer extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  child: Text('Settings', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.deepPurple)),
+                  child: Text('Settings', style: TextStyle(fontWeight: FontWeight.bold, )),
                 ),
                 ListTile(
                   leading: const Icon(Icons.settings),

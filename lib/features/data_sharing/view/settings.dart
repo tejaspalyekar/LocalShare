@@ -1,4 +1,4 @@
-import 'package:LocalShare/features/data_sharing/viewmodel/home_viewmodel.dart';
+import 'package:LocalShare/features/data_sharing/viewmodel/sharing_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
@@ -9,7 +9,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Get.find<HomeViewModel>();
+    final viewModel = Get.find<SharingViewModel>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
