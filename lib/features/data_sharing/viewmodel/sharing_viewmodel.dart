@@ -11,7 +11,7 @@ class SharingViewModel extends GetxController {
   final RxInt myPortNumber = portNumber.obs;
   RxBool isServerRunning = false.obs;
 
-   TextEditingController remoteIpAddressController = TextEditingController();
+  TextEditingController remoteIpAddressController = TextEditingController();
   TextEditingController dataController = TextEditingController();
   TextEditingController remotePortNumber = TextEditingController(
     text: portNumber.toString(),
@@ -34,22 +34,28 @@ class SharingViewModel extends GetxController {
       // );
       await for (Socket client in _server!) {
         log("Connection from ${client.remoteAddress.address}");
-    Get.closeCurrentSnackbar();
+        Get.closeCurrentSnackbar();
         Get.showSnackbar(
-
-          GetSnackBar(title: "Connection Successful",message: "Connection Received from ${client.remoteAddress.address}",),
+          GetSnackBar(
+            duration: Duration(seconds: 1),
+            title: "Connection Successful",
+            message: "Connection Received from ${client.remoteAddress.address}",
+          ),
         );
         client.listen((data) async {
-         Get.closeCurrentSnackbar();
+          Get.closeCurrentSnackbar();
           Get.showSnackbar(
-            GetSnackBar(title: 'Data',message:' ${String.fromCharCodes(data)}' ,),
+            GetSnackBar(
+              duration: Duration(seconds: 2),
+              title: 'Data Received',
+              message: ' ${String.fromCharCodes(data)}',
+            ),
           );
         });
       }
-      Get.back();
     } catch (e) {
       Get.closeCurrentSnackbar();
-      Get.showSnackbar(GetSnackBar(title: 'Error',message: e.toString(),));
+      Get.showSnackbar(GetSnackBar(title: 'Error', message: e.toString()));
       log(e.toString());
     }
   }
@@ -64,19 +70,32 @@ class SharingViewModel extends GetxController {
         );
         log("Connected to server");
         log(dataController.text.trim());
+
         socket.write(dataController.text.trim());
+        Get.showSnackbar(
+          GetSnackBar(
+            duration: Duration(seconds: 2),
+            title: "Data Send Successfully",
+            message: 'Send was send successfully',
+          ),
+        );
+      
         socket.listen((data) {
-         Get.closeCurrentSnackbar();
+          Get.closeCurrentSnackbar();
           Get.showSnackbar(
-            GetSnackBar(title: "Data Send",message:'Send Data ${String.fromCharCodes(data)}' ,),
+            GetSnackBar(
+              duration: Duration(seconds: 1),
+              title: "Data Send",
+              message: 'Send Data ${String.fromCharCodes(data)}',
+            ),
           );
 
           log("Response: ${String.fromCharCodes(data)}");
         });
-        //Get.back();
+          socket.close();
       } catch (e) {
         Get.closeCurrentSnackbar();
-        Get.showSnackbar(GetSnackBar(title: "Error",message: e.toString(),));
+        Get.showSnackbar(GetSnackBar(title: "Error", message: e.toString()));
         log("Error: $e");
       }
     } else {

@@ -40,7 +40,9 @@ class QrScannerViewmodel extends GetxController {
         barcodeData.barcodes.first.rawValue!.isNotEmpty) {
              isQrScannerVisible.value = false;
              Get.closeCurrentSnackbar();
-             Get.showSnackbar(GetSnackBar(title: "Sharing Data",message: "Please wait data sharing is in progress",));
+             Get.showSnackbar(GetSnackBar(
+               duration: Duration(seconds: 1),
+              title: "Sharing Data",message: "Please wait data sharing is in progress",));
       log((barcodeData.barcodes.first.rawValue.toString()));
       final response = parseQrData(
         barcodeData.barcodes.first.rawValue.toString(),
